@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    vector<vector<int>> d={{1,1},{1,-1},{-1,1},{-1,-1}};
+    long long t;
+    cin>>t;
+    while (t--){
+        long long a,b,xk,yk,xq,yq;
+        cin>>a>>b>>xk>>yk>>xq>>yq;
+        set<pair<long long,long long>> sk;
+        for (long long i=0;i<4;i++){
+            sk.insert({xk+a*d[i][0],yk+b*d[i][1]});
+            sk.insert({xk+b*d[i][0], yk+a*d[i][1]});
+        }
+        set<pair<long long,long long>> sq;
+        for (long long i=0;i<4;i++){
+            sq.insert({xq+a*d[i][0],yq+b*d[i][1]});
+            sq.insert({xq+b*d[i][0], yq+a*d[i][1]});
+        }
+        long long count=0;
+        for (auto it=sq.begin();it!=sq.end();it++){//O(8log8)
+            if (sk.find(*it)!=sk.end()){
+                count++;
+            }
+        }
+
+        //T.C.:- O(8log8)=O(24);
+        //S.C:- O(8)=O(1)
+        cout<<count<<endl;
+    }
+    return 0;
+}
