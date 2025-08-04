@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long t;
+    cin >> t;
+    while (t--)
+    {
+        long long n;
+        cin >> n;
+        vector<long long> store(n, 0);
+        for (long long i = 0; i < n; i++)
+        {
+            cin >> store[i];
+        }
+
+        long long maxDiff = store[n - 1] - store[0];
+        for (long long i = 0; i < n - 1; i++)
+        {
+            maxDiff = max(maxDiff, store[i] - store[i + 1]);
+        }
+        for (long long i = 0; i < n - 1; i++)
+        {
+            maxDiff = max(maxDiff, store[n - 1] - store[i]);
+        }
+        for (int i = 1; i < n - 1; i++)
+        {
+            maxDiff = max(maxDiff, store[i] - store[0]);
+        }
+        cout << maxDiff << endl;
+
+        //T.C.:- O(n);
+        //S.C.:- O(n);
+    }
+    return 0;
+}
