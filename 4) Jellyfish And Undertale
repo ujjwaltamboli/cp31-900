@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    long long t;
+    cin>>t;
+    while (t--){
+        long long a,b,n;
+        cin>>a>>b>>n;
+        vector<long long> store(n,0);
+        for (long long i=0;i<n;i++){//O(n);
+            cin>>store[i];
+        }
+        long long sum=b;
+        for (long long i=0;i<n;i++){//O(n);
+            long long extraOp=min(1+store[i],a)-1;
+            sum=sum+extraOp;
+        }
+        cout<<sum<<endl;
+
+        //T.C.:- O(n);
+        //S.C.:- O(n);
+    }
+    return 0;
+}
