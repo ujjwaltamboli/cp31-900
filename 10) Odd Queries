@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    long long t;
+    cin>>t;
+    while (t--){
+        long long n,q;
+        cin>>n>>q;
+        vector<long long> store(n,0);
+        vector<long long> preSum(n,0);
+        long long sum=0;
+        for (long long i=0;i<n;i++){
+            cin>>store[i];
+            sum=sum+store[i];
+            preSum[i]=sum;
+        }
+        for (long long i=0;i<q;i++){
+            long long sum2=sum;
+            long long l,r,k;
+            cin>>l>>r>>k;
+            sum2=sum2+k*(r-l+1);
+            long long val=preSum[l-2];
+            if (l-2<0){
+                val=0;
+            }
+            sum2=sum2-(preSum[r-1]-val);
+            // cout<<sum2<<endl;
+            if (sum2%2==1){
+                cout<<"Yes"<<endl;
+            }
+            else{
+                cout<<"no"<<endl;
+            }
+        }
+
+        //T.C.:- O(q);
+        //S.C.:- O(n+q);
+    }
+    return 0;
+}
