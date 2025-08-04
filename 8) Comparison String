@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while (t--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        int maxi1=0;
+        int maxi2=0;
+        int count1=0;
+        int count2=0;
+        for (int i=0;i<n;i++){
+            if (s[i]=='<'){
+                count1++;
+            }
+            else{
+                count1=0;
+            }
+            if (s[i]=='>'){
+                count2++;
+            }
+            else{
+                count2=0;
+            }
+            maxi1=max(maxi1,count1);
+            maxi2=max(maxi2,count2);
+        }
+        cout<<max(maxi1,maxi2)+1<<endl;
+
+        //T.C.:- O(n);
+        //S.C.:- O(n);
+    }
+    return 0;
+}
