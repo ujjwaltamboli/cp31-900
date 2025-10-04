@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while (t--){
+        long long int a,b;
+        cin>>a>>b;
+        long long int gcd=abs(a-b);
+        long long int minOperations=0;
+        if (gcd!=0){
+            minOperations=min(a%gcd,gcd-(a%gcd));
+        }
+        cout<<gcd<<" "<<minOperations<<endl;
+
+        //T.C.:- O(1);
+        //S.C.:- O(1);
+    }
+    return 0;
+}
