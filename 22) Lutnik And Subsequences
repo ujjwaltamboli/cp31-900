@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while (t--){
+        unordered_map<int,int> freq;
+        int n;
+        cin>>n;
+        while (n--){
+            int a;
+            cin>>a;
+            if (a==1){
+                freq[1]++;
+            }
+            if (a==0){
+                freq[0]++;
+            }
+        }
+            n=freq[0];
+            cout<< (1LL<<n)*freq[1]<<endl;
+            //T.C.:- O(1);
+            //S.C.:- O(1);
+    }
+
+    return 0;
+}
