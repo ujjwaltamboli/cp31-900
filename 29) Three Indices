@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while (t--){
+        int n;
+        cin>>n;
+        vector<int> store(n,0);
+        for (int i=0;i<n;i++){
+            cin>>store[i];
+        }
+        int ans=-1;
+        for (int j=1;j<=n-2;j++){
+            if (store[j]>store[j-1] && store[j]>store[j+1]){
+                ans=j+1;
+                break;
+            }
+        }
+        if (ans==-1){
+            cout<<"No"<<endl;
+        }
+        else{
+            cout<<"Yes"<<endl;
+            cout<<ans-1<<" "<<ans<<" "<<ans+1<<endl;
+        }
+
+        //T.C.:- O(n);
+        //S.C.:- O(n);
+
+    }
+    return 0;
+}
